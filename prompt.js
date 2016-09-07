@@ -56,7 +56,7 @@ BootstrapModalPrompt = function() {
         // return false; // Aborts closing of modal!
       }
     }, options);
-    
+
     // Make sure to clean up.
     // Markup could remain if an error ocurred in a callback when processing
     // or hiding.
@@ -66,7 +66,7 @@ BootstrapModalPrompt = function() {
       title: options.title,
       content: options.content,
       btnDismissText: options.btnDismissText,
-      btnOkText: options.btnOkText 
+      btnOkText: options.btnOkText
     }, options.templateData);
     var dialog = Blaze.renderWithData(options.dialogTemplate, dialogData, $('body').get(0));
 
@@ -93,20 +93,20 @@ BootstrapModalPrompt = function() {
     }
 
     if (options.template) {
-      // Render the given template with the specified data and insert it 
+      // Render the given template with the specified data and insert it
       // to the modal-body directly.
       Blaze.renderWithData(
-        options.template, 
+        options.template,
         options.templateData,
         modal.find('.modal-body').get(0)
       );
     }
-    
+
     if (options.formSchema) {
-      // Render the form using the autoform quickForm template. 
+      // Render the form using the autoform quickForm template.
       Blaze.renderWithData(
         Template.quickForm,
-        {schema: options.formSchema, id: 'bootstrapModalPromptForm'},
+        {schema: options.formSchema, id: 'bootstrapModalPromptForm', buttonContent: false},
         modal.find('.modal-body').get(0)
       );
 
